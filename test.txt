@@ -1,3 +1,16 @@
 add by Merle
+<<<<<<< HEAD
 Version 11 by Merle
 Version 5 by Eric
+=======
+Version 1 by Merle
+Version 2 by Merle
+<<<<<<< HEAD
+Version 13 by Merle
+dog branch
+new line 1 by cat branch
+=======
+Version 3 by Merle
+dog branch
+>>>>>>> dog
+>>>>>>> remoteMerle/master
