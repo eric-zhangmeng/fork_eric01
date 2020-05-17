@@ -1,0 +1,40 @@
+(testenv) root@ubuntu_43-176:/home/spirent/einstein# robot -v testbed_config:testpacks/sdwan_performance/testbed_lab/configuration.yaml -V testpacks/sdwan_performance/testbed_lab/testbed_map.py -d result -t sd-wan.performance_traffic_forwarding.010 testpacks/sdwan_performance/core.robot
+==============================================================================
+Core                                                                          
+==============================================================================
+sd-wan.performance_traffic_forwarding.010                             .
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.setup...
+Attaching stc ports...done
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.setup done
+
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.run...
+Configuring stc ports...done
+Config STC objects ...done
+Configing bidirectional RFC2544 latency test ...done
+Save config file...done
+Applying STC configuration ...done
+Clear all results for all ports...done
+Performing ARP...done
+Starting command sequencer...
+Sequencer started, it will take several minutes to finish.
+Wait command sequencer to stop...
+Sequencer stopped
+Save results...done
+Final test state is PASSED
+Downloading summary result for bidirectional RFC2544 latency test...done
+Getting summary result for bidirectional RFC2544 latency test...done
+Parsing summary result for bidirectional RFC2544 latency test...done
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.run done
+.
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.cleanup...
+Downloading stc logs...done
+Releasing stc ports...done
+Running PerformanceTrafficForwardingLatencyBidirectionalImix.cleanup done
+sd-wan.performance_traffic_forwarding.010                             | PASS |
+Latency results: [(x, y%, a, b, c)], x===>iMix distribution, y%===>%y of line speed, a===>min latency(us), b===>max latency(us), c===>average latency(us)
+RFC2544 unidirectional latency test result: [(Default, 1%, 4.005, 10.09, 5.382), (Default, 10%, 3.618, 13.393, 5.539), (Default, 50%, 3.862, 55.252, 6.296), (Spirent, 1%, 3.998, 9.738, 5.435), (Spirent, 10%, 3.663, 11.953, 5.403), (Spirent, 50%, 3.853, 14.94, 6.315), (4-Point, 1%, 4.005, 10.79, 5.454), (4-Point, 10%, 3.728, 15.02, 5.434), (4-Point, 50%, 3.828, 13.672, 6.354), (TCPv4, 1%, 4.043, 9.82, 5.468), (TCPv4, 10%, 3.688, 10.932, 5.433), (TCPv4, 50%, 3.902, 12.697, 6.327), (IPSEC, 1%, 4.05, 14.557, 5.445), (IPSEC, 10%, 3.663, 12.14, 5.415), (IPSEC, 50%, 3.88, 16.535, 6.312), (JMIX Downstream, 1%, 4.055, 10.325, 5.735), (JMIX Downstream, 10%, 4.03, 12.568, 5.76), (JMIX Downstream, 50%, 3.715, 18.098, 6.454), (JMIX Upstream, 1%, 4.045, 13.557, 5.383), (JMIX Upstream, 10%, 3.643, 13.877, 5.585), (JMIX Upstream, 50%, 3.96, 13.6, 6.351)]
+------------------------------------------------------------------------------
+Core                                                                  | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================

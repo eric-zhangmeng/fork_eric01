@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>testpack_case_content</title>
+    <meta name="description" content="Common form elements and layouts" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/jquery-ui.custom.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/chosen.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/daterangepicker.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap-colorpicker.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/fonts.googleapis.com.css" />
+    <link rel="stylesheet" href="../static/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="../static/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/testpack.css" />
+    <script src="../static/assets/js/ace-extra.min.js"></script>
+  </head>
+  <body class="no-skin">
+    <div class="main-container ace-save-state" id="main-container">
+      <script type="text/javascript">
+        try{ace.settings.loadState('main-container')}catch(e){}
+      </script>
+      <br>
+      <div class="profile-user-info profile-user-info-striped">
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Id </div>
+          <div class="profile-info-value">
+            <span style="margin-left: 25px">{{identifier}}</span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Name </div>
+          <div class="profile-info-value">
+            <span style="margin-left: 25px">{{name}}</span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Test Type </div>
+          <div class="profile-info-value">
+            <span style="margin-left: 25px">{{test_type}}</span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Equipment </div>
+          <div class="profile-info-value">
+            <ul>
+              {% for type, count in equipment_list %}
+                <li style="list-style: none;>">
+                  <small>
+                    - type: {{type}}
+                    <br>
+                    &nbsp;&nbsp;count: {{count}}
+                  </small>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Duration </div>
+          <div class="profile-info-value">
+            <span style="margin-left: 25px">{{duration}}</span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Timeout </div>
+          <div class="profile-info-value">
+            <span style="margin-left: 25px">{{timeout}}</span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Parameter </div>
+          <div class="profile-info-value">
+            <ul>
+              {% for name, value in parameter_list %}
+                <li style="list-style: none;>">
+                  <small>
+                    - name: {{name}}
+                    <br>
+                    &nbsp;&nbsp;value: {{value}}
+                  </small>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> Procedure </div>
+          <div class="profile-info-value">
+            <ul>
+              {% for procedure in procedure_list %}
+                <li style="list-style: none;>">
+                  <small>{{procedure}}</small>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../static/js/topology.js"></script>
+    <script src="../static/assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+      if('ontouchstart' in document.documentElement) document.write("<script src='../static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/jquery.nestable.min.js"></script>
+    <script src="../static/assets/js/ace-elements.min.js"></script>
+    <script src="../static/assets/js/ace.min.js"></script>
+    <script type="text/javascript">
+      jQuery(function($){
+        $('.dd').nestable();
+        $('.dd-handle a').on('mousedown', function(e){
+          e.stopPropagation();
+        });
+        $('[data-rel="tooltip"]').tooltip();
+      });
+    </script>
+  </body>
+</html>

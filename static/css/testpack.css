@@ -1,0 +1,106 @@
+*{margin:0;padding:0;}
+table {
+    border-collapse: collapse;
+    border-color: #ccc;
+    border-style: solid; 
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+td, th {
+    font-size: 15px;
+    line-height: 25px;
+    border-bottom: 2px solid #eee;
+    vertical-align: top;
+    padding: 5px;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+th {
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+}
+#LoginDiv
+{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
+#UserNameOfLogin
+{margin-top:10px; margin-bottom:10px; height:30px; width:300px;}
+#PassWordOfLogin
+{margin-top:10px; margin-bottom:10px; height:30px; width:300px;}
+#changePassOfMain
+{color:#FFFFFF;text-decoration:none;}
+#logOutOfMain
+{color:#FFFFFF;text-decoration:none;}
+
+.button1
+{margin-top:10px; height:30px; width:300px; background-color:#0099FF; border-style:groove;border-color:transparent;border-radius:5px}
+.button2
+{margin-top:10px; margin-left: 10px; height:30px; width:150px; background-color:#0099FF; border-style:groove;border-color:transparent;border-radius:5px}
+.spanBold
+{font-size: 13px; font-weight: bold;}
+.buttonAdd1
+{margin-bottom: 10px; margin-top: 10px;height:20px; width:20px; background-color:#FFFFFF; font-size: 15px; font-weight: bold;color:green;}
+.buttonDelete1
+{margin-bottom: 10px; margin-top: 10px;height:20px; width:20px; background-color:#FFFFFF; font-size: 15px; font-weight: bold;color:red;}
+.helptext
+{font-family:sans-serif;font-style:oblique;font-size:12px;}
+.mainTitle
+{width:100%; background-color:#0099FF; margin-bottom: 5px;}
+.leftWordmainTitle
+{color:#FFFF66; margin-left: 10px; font-size: 25px;}
+.rightWordmainTitle
+{color: #FFFF66; font-size: 15px; position: absolute; right: 100px;}
+.lable1
+{position:relative; margin-left: 10px; margin-bottom: 10px;}
+.lableForCase1
+{position:relative; font-size: 13px; margin-left: 10px;  margin-bottom: 10px; margin-top: 10px;}
+.divForCase1
+{position:relative; margin-left: 10px; margin-right: 10px; border:1px solid #E0E0E0;}
+.input1
+{position:relative; margin-bottom: 10px;}
+.inputForCase1
+{position:relative;  margin-bottom: 10px; margin-top: 10px;}
+.inputForMiscFile
+{position:relative; margin-left: 128px; margin-bottom: 10px; margin-top: 10px; width: 500px;}
+.inputForVariableType
+{position:relative; margin-left: 180px; margin-bottom: 10px; margin-top: 10px; width: 100px;}
+.inputForVariableValue
+{position:relative; margin-left: 45px; margin-bottom: 10px; margin-top: 10px; width: 200px;}
+.link1
+{color:#3366FF; text-decoration:none;}
+.link2
+{margin-top:0px; color:#0099FF; text-decoration:none; margin-left: 10px;}
+.div1
+{margin-left: 10px; margin-top: 10px;}
+.submit1
+{margin-left: 10px;padding: 3px;}
+.p1
+{margin-left: 10px;margin-top:20px;visibility:hidden;width:100%;background-color:#FF0000;color:#FFFFFF;}
+.p2
+{margin-left: 10px;margin-top:20px;}
+.link3
+{margin-right: 200px;}
+.th1, .th11, .th12, .th13, .th01, .td1, .td2
+{border-style: solid;border-color: #ccc;border-width: 2px;}
+.th01
+{width: 15px;}
+.th11
+{width: 300px;}
+.th12
+{width: 300px;}
+.th13
+{width: 300px;}
+.td1
+{width: 280px;}
+.td2
+{width: 180px;}
+.link3
+{text-decoration:none;}
+.link4
+{text-decoration:none;border-style: solid;border-color: #ccc;border-width: 2px;padding-left: 7px; padding-right: 7px;}
+.check01
+{width: 15px;height: 15px;}
+.label_filter
+{width: 150px;margin-top: 20px;margin-left: 20px;margin-right: 20px;margin-bottom: 10px;}
+.select1
+{width: 150px;margin-top: 10px;margin-left: 20px;margin-right: 20px;margin-bottom: 10px;}

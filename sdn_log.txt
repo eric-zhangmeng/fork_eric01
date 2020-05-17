@@ -1,0 +1,63 @@
+====================================================================================================
+                    project: sdn
+                    area: SDN
+                    start: 2020-05-18 01:48:27
+====================================================================================================
+TestCase003          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Clear all results for all ports...done.
+Start command sequencer......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+TestCase004          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Start all protocols...done.
+Start streams......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+TestCase005          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Start all protocols...done.
+Start streams......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+TestCase006          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Start all protocols...done.
+Start streams......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+TestCase011          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Clear all results for all ports...done.
+Start command sequencer......done.
+Final test state is FAILED
+----------------------------------------------------------------------------------------------------
+TestCase012          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Start all protocols...done.
+Start streams......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+TestCase013          .
+Attaching stc ports...done.
+Configuring stc ports...done.
+Performing ARP...done.
+Start all protocols...done.
+Start streams......done.
+Final test state is PASSED
+----------------------------------------------------------------------------------------------------
+Project sdn is finished.
+====================================================================================================
