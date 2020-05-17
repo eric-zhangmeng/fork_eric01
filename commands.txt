@@ -1,0 +1,27 @@
+select * from testpackdb_project where name='sda';
+select * from testpackdb_project;
+select * from testpackdb_cases;
+select * from testpackdb_recenttest;
+select * from testpackdb_topology;
+
+\d testpackdb_project;
+\d testpackdb_topology;
+
+delete from testpackdb_project where name='project1';
+delete from testpackdb_cases where name='*';
+
+create database back;
+django-admin startproject back
+python manage.py runserver 0.0.0.0:8000
+django-admin startapp database
+select * from casedb_cases;
+select * from database_book;
+show columns from mydb_cases;
+create database eric01;
+select * from MyDB_cases;
+create table TeSt01 (id int, name varchar(10));
+drop database eric01;
+django-admin startapp casedb
+django-admin startproject testdata
+python manage.py makemigrations
+python manage.py migrate
