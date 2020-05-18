@@ -49,6 +49,7 @@ urlpatterns = [
     url(r'^deleteCases$', testpack.deleteCases),
     url(r'^cteate_project$', testpack.cteate_project),
     url(r'^deleteProjects$', testpack.deleteProjects),
+    url(r'^deleteRecents$', testpack.deleteRecents),
     url(r'^importCases$', testpack.importCases),
     url(r'^importTopos$', testpack.importTopos),
     url(r'^test1$', testpack.test1),

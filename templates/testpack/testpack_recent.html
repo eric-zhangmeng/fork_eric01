@@ -120,7 +120,7 @@
 													</tr>
 												</thead>
 												<tbody id="projects">
-                        {% for project_name, execution_date, duration, ratio in projectInfoList %}
+                        {% for project_name, execution_date, duration, ratio, log_name in projectInfoList %}
 													<tr>
                             <td>
                               <a href="#">{{project_name}}</a>
@@ -130,7 +130,8 @@
                             <td>{{ratio}}</td>
                             <td>
                               <div class="hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
+                                <a class="blue" href="getLog?log_name={{log_name}}" download="test.zip">
+                                <!-- <a class="blue" href="#"> -->
                                   <i class="ace-icon fa fa-link bigger-130"></i>
                                 </a>
                               </div>

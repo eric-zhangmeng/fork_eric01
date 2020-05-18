@@ -2,6 +2,7 @@ window.onload = function(){
   if ($("#repeatProject").text() == 'yes') {
     window.alert('Project name of "' + $("#repeatProjectName").text() + '" has been used, please create project with another name.' );
   }
+  var run_flag = 'false';
   for (var i=0; i<$("#projects").children('tr').length; i++) {
     state = $("#projects").children('tr').eq(i).children('td').eq(2).text();
     // console.log('state of project is ' + state);
@@ -20,6 +21,21 @@ window.onload = function(){
       $("#projects").children('tr').eq(i).children('td').eq(8).children('button').eq(0).attr("disabled", true);
     }
   }
+  var interval = null;
+  interval = setInterval(function(){
+    for (var i=0; i<$("#projects").children('tr').length; i++) {
+      state = $("#projects").children('tr').eq(i).children('td').eq(2).text();
+      if (state != 'idle') {
+        run_flag = 'true';
+      }
+    }
+    if (run_flag == 'false') {
+      clearInterval(interval);
+    }
+    else {
+      window.location.reload();
+    }
+  }, 5000);
 }
 
 function onCreateProject(obj){

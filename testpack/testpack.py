@@ -1,11 +1,11 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, FileResponse
 from django.shortcuts import render,HttpResponse,redirect,HttpResponseRedirect
 from django.contrib import messages
 import xlrd, xlwt
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 from testpackdb.models import Cases, Project, Topology, Parameter, recentTest
-import datetime, time, json, os, sys, json, random
+import datetime, time, json, os, sys, json, random, zipfile
 
 def temp1(request):
   name = '2stc_2dut_type01'
@@ -17,6 +17,10 @@ def temp1(request):
 def test1(request):
   context = {}
   # return HttpResponseRedirect('/testpack_project')
+  response = FileResponse(open('./logs/mef_20200518225203.zip', 'rb'))
+  response['content_type'] = "application/octet-stream"
+  response['Content-Disposition'] = 'attachment; filename=' + os.path.basename('./logs/mef_20200518225203.zip')
+  return response
   return render(request, './testpack/test1.html', context)
 
 def test2(request):
@@ -47,8 +51,8 @@ def testpack_recent(request):
   for result in recentResult:
     total = result.total
     passed = result.passed
-    ratio = str(passed) + '/' + str(total) + '(' +str(int(float("{0:.2f}".format(passed/total)) * 100)) + ')'
-    context['projectInfoList'].append((result.name, result.execution, result.duration, ratio))
+    ratio = str(passed) + '/' + str(total) + '(' +str(int(float("{0:.2f}".format(passed/total)) * 100)) + '%)'
+    context['projectInfoList'].append((result.name, result.execution, result.duration, ratio, result.logPath))
   return render(request, './testpack/testpack_recent.html', context)
 
 def testpack_running(request):
@@ -102,13 +106,11 @@ def cteate_project(request):
   return HttpResponseRedirect('/testpack_project_start?nameProject=' + nameProject)
 
 def getLog(request):
-  context = {}
-  context['lineInfoList'] = []
-  name_topo = request.GET.get('name_topo','noTopo')
-  value_topo = Topology.objects.get(name=name_topo).value
-  context=json.loads(value_topo)
-  context['lineInfoList'].append((project.name, project.lastRun, elapsed_time, progress, percentage))
-  return render(request, './testpack/' + name_topo + '.html', context)
+  log_name = request.GET.get('log_name', 'noLog')
+  response = FileResponse(open('./logs/' + log_name + '.zip', 'rb'))
+  response['content_type'] = "application/octet-stream"
+  response['Content-Disposition'] = 'attachment; filename=' + os.path.basename('./logs/' + log_name + '.zip')
+  return response
 
 def viewConsole(request):
   context = {}
@@ -137,7 +139,16 @@ def startProject(request):
   for key, value in maps.items():
     check_cases.append(key)
   total = len(check_cases)
-  fo = open(nameProject+"_log.txt", "w")
+  log_project = nameProject + '_' +time.strftime("%Y%m%d%H%M%S", time.localtime())
+  log_dir = './logs/' + log_project
+  os.mkdir(log_dir)
+  fo = open(log_dir + "/bll.log", "w")
+  fo.write( "="*20 + 'bll logs' + "="*20 +"\n")
+  fo.close()
+  fo = open(log_dir + "/il.log", "w")
+  fo.write( "="*20 + 'il logs' + "="*20 +"\n")
+  fo.close()
+  fo = open(log_dir + "/test_log.txt", "w")
   fo.write( "="*100 + "\n")
   str_console = str_console +  "="*100 + "\n"
   fo.write( " "*20 + "project: " + nameProject + "\n")
@@ -218,7 +229,12 @@ def startProject(request):
   m, s = divmod(elapsed_seconds, 60)
   h, m = divmod(m, 60)
   elapsed_time = "{0}d:{1}h:{2:02d}m:{3:02d}s".format(elapsed_days, h, m, s)
-  recentTest.objects.create(name=nameProject, execution=time_start, duration=elapsed_time, passed=passed, total=total)
+  zipFile = zipfile.ZipFile(log_dir + '.zip', 'w', zipfile.ZIP_DEFLATED)
+  # startdir = log_dir
+  for dirpath, dirnames, filenames in os.walk(log_dir):
+    for filename in filenames:
+      zipFile.write(os.path.join(dirpath,filename), filename)
+  recentTest.objects.create(name=nameProject, execution=time_start, duration=elapsed_time, passed=passed, total=total, logPath=log_project)
   return HttpResponse('start project successfully!')
 
 def stopProject(request):
@@ -466,6 +482,11 @@ def deleteProjects(request):
   for project in Project.objects.all():
     project.delete()
   return HttpResponse('delete projects')
+
+def deleteRecents(request):
+  for recent in recentTest.objects.all():
+    recent.delete()
+  return HttpResponse('delete recents')
 
 def importCases(request):
   context = {}
