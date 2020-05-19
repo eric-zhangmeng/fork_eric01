@@ -1,0 +1,42 @@
+{
+  "name": "sda",
+  "area": "SD-WAN",
+  "maps": {
+    "TestCase001": {
+      "testbed": "2stc_2dut_type01_testbed02",
+      "parameter": {
+        "max_wait_time_after_break_link(second) ": "30",
+        "max_wait_time_after_recover_link(second) ": "50"
+      }
+    },
+    "TestCase009": {
+      "testbed": "3stc_3dut_type02_testbed01",
+      "parameter": {
+        "vrrp_switchover_time(second) ": "25",
+        "vrrp_switchback_time(second) ": "35"
+      }
+    },
+    "TestCase010": {
+      "testbed": "2stc_2dut_type01_testbed01",
+      "parameter": {
+        "policy_apply_delay(second) ": "15",
+        "latency_traffic_load(x% of bandwidth) ": "15%"
+      }
+    },
+    "TestCase014": {
+      "testbed": "2stc_2dut_type01_testbed01",
+      "parameter": {}
+    },
+    "TestCase015": {
+      "testbed": "3stc_3dut_type02_testbed01",
+      "parameter": {
+        "vrrp_switchover_time(second) ": "25"
+      }
+    }
+  },
+  "testbed": {
+    "2stc_2dut_type01_testbed01": "{\"labServer\": {\"ip\": \"\", \"sessionName\": \"testpack001\"}, \"stcLocalHead\": {\"location\": \"\", \"speed\": \"default\", \"phy\": \"default\", \"device1\": {\"name\": \"local_head\", \"ipv4If\": {\"address\": \"192.168.1.1\", \"gateway\": \"192.168.1.254\", \"prefixLength\": \"24\"}, \"ipv6If\": {\"address\": \"2001::1\", \"gateway\": \"2001::2\", \"prefixLength\": \"64\"}}, \"device2\": {\"name\": \"local_device1\", \"ipv4If\": {\"address\": \"101.0.0.1\"}}}, \"stcRemoteHead\": {\"location\": \"\", \"speed\": \"default\", \"phy\": \"default\", \"device1\": {\"name\": \"remote_head\", \"ipv4If\": {\"address\": \"192.168.2.1\", \"gateway\": \"192.168.2.254\", \"prefixLength\": \"24\"}, \"ipv6If\": {\"address\": \"2002::1\", \"gateway\": \"2002::2\", \"prefixLength\": \"64\"}}, \"device2\": {\"name\": \"remote_device1\", \"ipv4If\": {\"address\": \"201.0.0.1\"}}}}",
+    "2stc_2dut_type01_testbed02": "{\"labServer\":{\"ip\":\"\",\"sessionName\":\"testpack123\"},\"stcLocalHead\":{\"location\":\"\",\"speed\":\"1G\",\"phy\":\"EthernetCopper\",\"device1\":{\"name\":\"local_head\",\"ipv4If\":{\"address\":\"192.168.1.1\",\"gateway\":\"192.168.1.254\",\"prefixLength\":\"24\"},\"ipv6If\":{\"address\":\"2001::1\",\"gateway\":\"2001::2\",\"prefixLength\":\"64\"}},\"device2\":{\"name\":\"local_device1\",\"ipv4If\":{\"address\":\"101.0.0.1\"}}},\"stcRemoteHead\":{\"location\":\"\",\"speed\":\"Default\",\"phy\":\"Default\",\"device1\":{\"name\":\"remote_head\",\"ipv4If\":{\"address\":\"192.168.2.1\",\"gateway\":\"192.168.2.254\",\"prefixLength\":\"24\"},\"ipv6If\":{\"address\":\"2002::1\",\"gateway\":\"2002::2\",\"prefixLength\":\"64\"}},\"device2\":{\"name\":\"remote_device1\",\"ipv4If\":{\"address\":\"201.0.0.1\"}}}}",
+    "3stc_3dut_type02_testbed01": "{\"labServer\": {\"ip\": \"\", \"sessionName\": \"testpack001\"}, \"stcSiteA\": {\"location\": \"\", \"speed\": \"default\", \"phy\": \"default\", \"deviceSiteADefault\": {\"name\": \"site-a_default\", \"ipv4If\": {\"address\": \"192.168.1.1\", \"gateway\": \"192.168.1.254\", \"prefixLength\": \"24\"}}}, \"stcSiteB\": {\"location\": \"\", \"speed\": \"default\", \"phy\": \"default\", \"deviceSiteBDefault\": {\"name\": \"site-b_default\", \"ipv4If\": {\"address\": \"192.168.2.1\", \"gateway\": \"192.168.2.254\", \"prefixLength\": \"24\"}}}, \"stcSiteC\": {\"location\": \"\", \"speed\": \"default\", \"phy\": \"default\", \"deviceSiteCDefault\": {\"name\": \"site-c_default\", \"ipv4If\": {\"address\": \"192.168.3.1\", \"gateway\": \"192.168.3.254\", \"prefixLength\": \"24\"}}}}"
+  }
+}

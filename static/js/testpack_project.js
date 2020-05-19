@@ -131,3 +131,10 @@ function deleteProject(obj){
     });
   } 
 }
+
+// function exportProject(obj){
+//   nameProject = $(obj).parent().parent().children('td').eq(0).children('a').eq(0).text();
+//   if (confirm("Project will be exported, press 'Y' to confirm!")) {
+//     window.location.href='/exportProject?nameProject=' + nameProject +'';
+//   } 
+// }

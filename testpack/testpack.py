@@ -230,7 +230,6 @@ def startProject(request):
   h, m = divmod(m, 60)
   elapsed_time = "{0}d:{1}h:{2:02d}m:{3:02d}s".format(elapsed_days, h, m, s)
   zipFile = zipfile.ZipFile(log_dir + '.zip', 'w', zipfile.ZIP_DEFLATED)
-  # startdir = log_dir
   for dirpath, dirnames, filenames in os.walk(log_dir):
     for filename in filenames:
       zipFile.write(os.path.join(dirpath,filename), filename)
@@ -263,7 +262,23 @@ def getTestResult(request):
 def exportProject(request):
   context = {}
   nameProject = request.GET.get('nameProject', 'noProject')
-  return HttpResponse('export project successfully!')
+  area = Project.objects.get(name=nameProject).area
+  maps = Project.objects.get(name=nameProject).maps
+  testbed = Project.objects.get(name=nameProject).testbed
+  project = {}
+  project['name'] = nameProject
+  project['area'] = area
+  project['maps'] = json.loads(maps)
+  project['testbed'] = json.loads(testbed)
+  project_file = './projects/' + nameProject + '.json'
+  with open(project_file, 'w') as file_obj:
+    json.dump(project, file_obj, indent=2)
+  # log_name = 'sda_20200519132803'
+  response = FileResponse(open(project_file, 'rb'))
+  response['content_type'] = "application/octet-stream"
+  response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(project_file)
+  return response
+  # return HttpResponse('export project successfully!')
 
 def importProject(request):
   context = {}
