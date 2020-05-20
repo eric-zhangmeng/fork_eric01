@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^cloneProject$', testpack.cloneProject),
     url(r'^exportProject$', testpack.exportProject),
     url(r'^importProject$', testpack.importProject),
+    url(r'^onImportProject$', testpack.onImportProject),
     url(r'^returnTopology$', testpack.returnTopology),
     url(r'^viewTopology$', testpack.viewTopology),
     url(r'^viewTestbed$', testpack.viewTestbed),

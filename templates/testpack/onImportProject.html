@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Import Project - Testpack</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/fonts.googleapis.com.css" />
+    <link rel="stylesheet" href="../static/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="../static/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="../static/assets/css/testpack.css" />
+  </head>
+
+  <body class="no-skin">
+    {% include "testpack\navbar.html" %}
+    <div class="main-container ace-save-state" id="main-container">
+      <script type="text/javascript">
+        try{ace.settings.loadState('main-container')}catch(e){}
+      </script>
+      <div id="sidebar" class="sidebar responsive ace-save-state">
+        <script type="text/javascript">
+            try{ace.settings.loadState('sidebar')}catch(e){}
+        </script>
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        </div>
+        <ul class="nav nav-list">
+          <li class="">
+            <a href="testpack_result_stas" class="dropdown-toggle">
+              <i class="menu-icon fa fa-tachometer"></i>
+              <span class="menu-text"> Dashboard </span>
+              <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+              <li class="">
+                  <a href="testpack_result_stas">
+                      <i class="menu-icon fa fa-caret-right"></i>
+                      Result Statistics
+                  </a>
+                  <b class="arrow"></b>
+              </li>
+              <li class="">
+                  <a href="testpack_case_dis">
+                      <i class="menu-icon fa fa-caret-right"></i>
+                      Cases Distribution
+                  </a>
+                  <b class="arrow"></b>
+              </li>
+              <li class="">
+                  <a href="testpack_running">
+                      <i class="menu-icon fa fa-caret-right"></i>
+                      Running Test
+                  </a>
+                  <b class="arrow"></b>
+              </li>
+              <li class="">
+                  <a href="testpack_recent">
+                      <i class="menu-icon fa fa-caret-right"></i>
+                      Recent Tests
+                  </a>
+                  <b class="arrow"></b>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+              <a href="testpack_project">
+                  <i class="menu-icon fa fa-list"></i>
+                  <span class="menu-text"> Project </span>
+              </a>
+              <b class="arrow"></b>
+          </li>
+          <li class="">
+              <a href="testpack_cases">
+                  <i class="menu-icon fa fa-briefcase"></i>
+                  <span class="menu-text"> TestCase </span>
+              </a>
+          </li>
+        </ul>
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="main-content-inner">
+          <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+              <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="testpack">Home</a>
+              </li>
+              <li class="active">Project</li>
+              <li class="active">Import</li>
+            </ul>
+          </div>
+          <div>
+           <form action="/importProject" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+              <button class = "button1" type="button" onclick="selectFile()">Select Json File</button> &nbsp;&nbsp; <span id='fileSelected'>No Json file chosen</span><br>
+              <input id='hiddenFile' type="file" name="fileUpload" alt="not support" value="import" style="display:none;" accept="application/json" onchange="changeValue()">
+              <input class = "button1" type="submit" value="Import">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../static/assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+      if('ontouchstart' in document.documentElement) document.write("<script src='../static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+
+    <script src="../static/assets/js/jquery.dataTables.min.js"></script>
+    <script src="../static/assets/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script src="../static/assets/js/dataTables.buttons.min.js"></script>
+    <script src="../static/assets/js/buttons.flash.min.js"></script>
+    <script src="../static/assets/js/buttons.html5.min.js"></script>
+    <script src="../static/assets/js/buttons.print.min.js"></script>
+    <script src="../static/assets/js/buttons.colVis.min.js"></script>
+    <script src="../static/assets/js/dataTables.select.min.js"></script>
+    <script src="../static/assets/js/ace-elements.min.js"></script>
+    <script src="../static/assets/js/ace.min.js"></script>
+    <script src="../static/js/onImportProject.js"></script>
+  </body>
+</html>

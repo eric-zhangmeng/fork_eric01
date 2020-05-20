@@ -4,7 +4,7 @@ from django.contrib import messages
 import xlrd, xlwt
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
-from testpackdb.models import Cases, Project, Topology, Parameter, recentTest
+from testpackdb.models import Cases, Project, Topology, recentTest
 import datetime, time, json, os, sys, json, random, zipfile
 
 def temp1(request):
@@ -91,7 +91,7 @@ def testpack_project(request):
   projectResult = Project.objects.all()
   context['projectInfoList'] = []
   for project in projectResult:
-    context['projectInfoList'].append((project.name, project.state))
+    context['projectInfoList'].append((project.name, project.state, project.lastRun))
   return render(request, './testpack/testpack_project.html', context)
 
 def cteate_project(request):
@@ -280,10 +280,27 @@ def exportProject(request):
   return response
   # return HttpResponse('export project successfully!')
 
+def onImportProject(request):
+  context = {}
+  return render(request, './testpack/onImportProject.html', context)
+
 def importProject(request):
   context = {}
-  nameProject = request.GET.get('nameProject', 'noProject')
-  return HttpResponse('import project successfully!')
+  if request.method == "POST":
+    fileHandle = request.FILES.get('fileUpload')
+  project = json.load(fileHandle)
+  name = project['name']
+  area = project['area']
+  # maps = project['maps']
+  maps = json.dumps(project['maps'])
+  testbed = json.dumps(project['testbed'])
+  # testbed = project['testbed']
+  projectResult = Project.objects.all()
+  for pro in projectResult:
+    if name == pro.name:
+      return HttpResponseRedirect('/testpack_project')
+  Project.objects.create(name=name, area=area, maps=maps, testbed=testbed)
+  return HttpResponseRedirect('/testpack_project')
 
 def cloneProject(request):
   context = {}

@@ -32,10 +32,6 @@ class Topology(models.Model):
   name = models.CharField(max_length=50, null=False, unique=True)
   value = models.TextField(null=False, unique=False)
 
-class Parameter(models.Model):
-  name = models.CharField(max_length=50, null=False, unique=True)
-  value = models.TextField(null=False, unique=False)
-
 class recentTest(models.Model):
   name = models.CharField(max_length=50, null=False, unique=False)
   execution = models.DateTimeField(auto_now=False)

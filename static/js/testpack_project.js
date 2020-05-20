@@ -45,6 +45,10 @@ function onCreateProject(obj){
   }
 }
 
+function onImportProject(obj){
+  window.location.href='/onImportProject';
+}
+
 function onViewProject(obj){
   nameProject = $(obj).text();
   window.open('testpack_project_view?nameProject=' + nameProject, "_blank", "location=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=1000, height=600, left=200, top=100");
